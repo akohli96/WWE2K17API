@@ -7,6 +7,7 @@ Plan
 
 1. DB Design
   - MySQL storage
+  
 2. Data sraping script
   - Python and Beautiful soup
   
