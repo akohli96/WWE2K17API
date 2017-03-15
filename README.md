@@ -15,3 +15,14 @@ Plan
   - Spring BOOT 
       - Initially no ORM
 
+
+DB Design
+
+
+|  Name | Height | Weight | City | State | Signature | Debut Game |
+|-------|--------|--------|------|-------|-----------|----------- |
+
+
+
+
+
