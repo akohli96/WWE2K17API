@@ -19,7 +19,8 @@ Plan
 DB Design
 
 
-| Name          | Height|Weight | City         | State         |Signature     |First game    |
+|  Name | Height | Weight | City | State | Signature | First |
+|-------|--------|--------|------|-------|-----------|-------|
 
 
 
