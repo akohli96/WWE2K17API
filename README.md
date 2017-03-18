@@ -19,8 +19,8 @@ Plan
 DB Design
 
 
-|  Name | Height | Weight | City | State | Signature | Debut Game |
-|-------|--------|--------|------|-------|-----------|----------- |
+|  Name | Height | Weight | City | State | Signature(JSON) | Debut Game |
+|-------|--------|--------|------|-------|---------------- |----------- |
 
 
 
