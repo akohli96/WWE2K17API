@@ -6,7 +6,7 @@ An unofficial API for WWE 2K17 superstars
 Plan
 
 1. DB Design
-  - MySQL storage
+  - NoSQL storage with mongo
   
 2. Data sraping script
   - Python and Beautiful soup
@@ -17,10 +17,7 @@ Plan
 
 
 DB Design
-
-
-|  Name | Height | Weight | City | State | Signature(JSON) | Debut Game |
-|-------|--------|--------|------|-------|---------------- |----------- |
+ - Document storage and JSON
 
 
 
