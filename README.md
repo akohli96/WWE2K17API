@@ -17,9 +17,7 @@ Plan
 
 
 DB Design
-
  - Document storage and JSON
-
 
 
 
