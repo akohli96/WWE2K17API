@@ -35,4 +35,11 @@ for superstar in ROSTER_SOUP.find_all(class_='aidanews_arttitle'):
 
 SAMPLE_STAR_LINK = "https://www.thesmackdownhotel.com/wwe2k17/roster/aj-styles"
 
+SUPERSTAR_SOUP = BeautifulSoup(requests.get(SAMPLE_STAR_LINK).text, "html.parser")
+
+#print SUPERSTAR_SOUP.prettify()
+
+print SUPERSTAR_SOUP.find(class_='contentheading').get_text().strip()
+
+
 print "DONE"
