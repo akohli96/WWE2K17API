@@ -44,14 +44,11 @@ print SUPERSTAR_SOUP.find(class_='contentheading').get_text().strip()
 superstar_info = SUPERSTAR_SOUP.find(class_='rosterbio')
 print superstar_info
 print type(superstar_info)
-#print superstar_info['strong']
-a = str(superstar_info.contents)
 
-for chunk in a.split("br/"):
-    print chunk , "CHUNK DAWGS"
 
-for content in superstar_info.contents:
-    print content, "LMAO"
 for attribute in superstar_info.children:
     print attribute,"1"
+
+useful = superstar_info.contents[4:]
+print useful
 print "DONE"
