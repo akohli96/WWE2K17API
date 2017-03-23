@@ -9,9 +9,8 @@ import requests
 
 """
 TODO:
-Figure out db design
-Figure out json with mysql
-https://scotch.io/tutorials/working-with-json-in-mysql
+Refactor and reorganise code into classes
+Study pymongo and store locally
 """
 
 
