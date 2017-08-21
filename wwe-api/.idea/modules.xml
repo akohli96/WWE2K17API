@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wwe-api.iml" filepath="$PROJECT_DIR$/.idea/modules/wwe-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wwe-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/wwe-api_main.iml" group="wwe-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wwe-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/wwe-api_test.iml" group="wwe-api" />
+    </modules>
+  </component>
+</project>
