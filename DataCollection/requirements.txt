@@ -8,7 +8,6 @@ lazy-object-proxy==1.2.2
 mccabe==0.6.1
 packaging==16.8
 pylint==1.6.5
-pymongo==3.4.0
 pyparsing==2.2.0
 requests==2.13.0
 six==1.10.0
