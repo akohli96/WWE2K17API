@@ -19,3 +19,5 @@ hs_err_pid*
 
 #IDEA
 wwe-api/.idea/*
+wwe-api/.gradle/*
+wwe-api/build*
