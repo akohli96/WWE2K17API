@@ -18,4 +18,4 @@ hs_err_pid*
 .vscode/
 
 #IDEA
-.idea/*
+wwe-api/.idea/*
