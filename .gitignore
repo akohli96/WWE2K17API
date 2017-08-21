@@ -18,6 +18,8 @@ hs_err_pid*
 .vscode/
 
 #IDEA
-wwe-api/.idea/*
-wwe-api/.gradle/*
-wwe-api/build*
+wwe-api/.idea/
+wwe-api/.gradle/
+wwe-api/build/
+wwe-api/gradle/
+wwe-api/out/
