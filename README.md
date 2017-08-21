@@ -6,7 +6,7 @@ An unofficial API for WWE 2K17 superstars
 Plan
 
 1. DB Design
-  - NoSQL storage with mongo
+  - JSON
   
 2. Data sraping script
   - Python and Beautiful soup
@@ -14,10 +14,6 @@ Plan
 3. Actual GET API
   - Spring BOOT 
       - Initially no ORM
-
-
-DB Design
- - Document storage and JSON
 
 
 
