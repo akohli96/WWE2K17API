@@ -16,15 +16,12 @@ public class WrestlerServiceImpl implements WrestlerService {
 
     @Override
     public void getByID(String id) {
-
     }
 
     @Override
     public void getAll() {
-
     }
 
     private void loadWrestlerData(){
-
     }
 }
