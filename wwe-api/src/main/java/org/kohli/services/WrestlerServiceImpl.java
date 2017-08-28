@@ -5,10 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 import java.util.Collection;
+import java.util.ArrayList;
+import java.io.IOException;
 import org.kohli.object.Wrestler;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.inject.Inject;
@@ -34,19 +38,23 @@ public class WrestlerServiceImpl implements WrestlerService {
     }
 
     @Override
-    public Collection<Wrestler>  getAll() {
-        return wrestlerMap.values();
+    public List<Wrestler>  getAll() {
+        System.out.println("Getting all in service layer");
+        wrestlerMap.values().forEach(wrestler -> System.out.println(wrestler.getID()));
+        return new ArrayList<Wrestler>(wrestlerMap.values());
     }
 
     private void loadWrestlerData(){
-
-        File file = new File("resources/superstar.json");
         try {
-           List<Wrestler> wrestlerList = objectMapper.readValue(file,  new TypeReference<List<Wrestler>>(){}); 
-           wrestlerList.forEach(wrestler -> wrestlerMap.put(UUID.randomUUID().toString(), wrestler));
-        } catch (Exception e) {
+            System.out.println("Loading all");
+            List<Wrestler> wrestlerList = objectMapper.readValue(new File("resources/superstar.json"),  new TypeReference<List<Wrestler>>(){}); 
+            wrestlerList.forEach(wrestler -> wrestlerMap.put(UUID.randomUUID().toString(), wrestler)); 
+        }catch (JsonParseException e){
+            System.out.println(e);
+        }catch (JsonMappingException e){
+            System.out.println(e);
+        }catch (IOException e) {
             System.out.println(e);
         }
-        
     }
 }

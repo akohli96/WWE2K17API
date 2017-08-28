@@ -1,10 +1,10 @@
 package org.kohli.services;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.kohli.object.Wrestler;
 public interface WrestlerService {
 
-    public Wrestler getByID(String id);
-    public Collection<Wrestler> getAll();
+    Wrestler getByID(String id);
+    List<Wrestler> getAll();
 }
