@@ -7,7 +7,7 @@ import javax.ws.rs.ApplicationPath;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ApplicationPath("/")
+@ApplicationPath("/api/v1")
 public class RestConfig extends ResourceConfig{
     public RestConfig(){
      register(WrestlerEndpointImpl.class);
