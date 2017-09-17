@@ -5,17 +5,8 @@ An unofficial API for WWE 2K17 superstars
 
 Plan
 
-1. DB Design
-  - JSON
-  
-2. Data sraping script
+1. Data sraping script
   - Python and Beautiful soup
   
-3. Actual GET API
+2. Actual GET API
   - Spring BOOT 
-      - Initially no ORM
-
-
-
-
-

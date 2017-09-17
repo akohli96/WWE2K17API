@@ -7,6 +7,7 @@ from constants import CONSTANTS
 from superstar import SuperStar
 import requests
 from bs4 import BeautifulSoup
+import uuid
 
 
 """
@@ -45,7 +46,7 @@ def process_superstar_html(roster_soup):
             try:
                 superstar_name = superstar_soup.find(class_="contentheading").get_text().strip()
                 superstar_processed_info = process_superstar_data(re.search(DATAPATTERN, text_found).groups())
-                new_star = SuperStar(superstar_name, superstar_processed_info[0], superstar_processed_info[1], superstar_processed_info[2], superstar_processed_info[3], superstar_processed_info[4])
+                new_star = SuperStar(superstar_name, superstar_processed_info[0], superstar_processed_info[1], superstar_processed_info[2], superstar_processed_info[3], superstar_processed_info[4],str(uuid.uuid4()))
                 superstar_list.append(new_star.__dict__)
             except AttributeError as attribute_error:
                 print attribute_error,superstar_name

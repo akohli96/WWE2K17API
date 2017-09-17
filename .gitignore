@@ -9,7 +9,25 @@
 *.ear
 
 #Python
-*/pyenv/*
+pyenv/*
 *.pyc
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+#VSCODE
+.vscode/
+
+#IDEA
+wwe-api/.idea/
+wwe-api/.gradle/
+wwe-api/build/
+wwe-api/gradle/
+wwe-api/out/
+wwe-api/.classpath
+wwe-api/.project
+wwe-api/.settings/
+wwe-api/bin/
+wwe-api/wwe-api.iml
+wwe-api/wwe-api.ipr
+wwe-api/wwe-api.iws
+
