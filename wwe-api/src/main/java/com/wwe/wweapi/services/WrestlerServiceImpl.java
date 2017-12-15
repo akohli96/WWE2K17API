@@ -1,20 +1,22 @@
-package org.kohli.services;
+package com.wwe.wweapi.services;
 
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 //import org.kohli.exception.WWEException;
-import org.kohli.object.Wrestler;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.wwe.wweapi.exception.WWEException;
+import com.wwe.wweapi.object.Wrestler;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.inject.Inject;
 
@@ -25,7 +27,7 @@ public class WrestlerServiceImpl implements WrestlerService {
     private Map<String,Wrestler> wrestlerMap;
 
     @Inject
-    public WrestlerServiceImpl(ObjectMapper objectMapper){
+    public WrestlerServiceImpl(ObjectMapper objectMapper) throws WWEException {
         this.objectMapper=objectMapper;
         wrestlerMap = new HashMap<>();
         loadWrestlerData();
@@ -38,20 +40,15 @@ public class WrestlerServiceImpl implements WrestlerService {
 
     @Override
     public List<Wrestler>  getAll() {
-        return new ArrayList<Wrestler>(wrestlerMap.values());
+        return new ArrayList <>(wrestlerMap.values());
     }
 
-    //@PostConstruct
-    private void loadWrestlerData(){
+    private void loadWrestlerData() throws WWEException {
         try {
-            List<Wrestler> wrestlerList = objectMapper.readValue(new ClassPathResource("superstar.json").getFile(),new TypeReference<List<Wrestler>>(){}); 
+            List<Wrestler> wrestlerList = objectMapper.readValue(new ClassPathResource("superstar.json").getFile(),new TypeReference<List<Wrestler>>(){});
             wrestlerList.forEach(wrestler -> wrestlerMap.put(wrestler.getID(), wrestler)); 
-        }catch (JsonParseException e){
-            //throw new WWEException(e);
-        }catch (JsonMappingException e){
-            //throw new WWEException(e);
-        }catch (IOException e) {
-            //throw new WWEException(e);
+        } catch (IOException e) {
+            throw new WWEException(e);
         }
     }
 }

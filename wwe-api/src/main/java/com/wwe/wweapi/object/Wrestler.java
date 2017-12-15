@@ -1,4 +1,4 @@
-package  org.kohli.object;
+package com.wwe.wweapi.object;
 
 import java.util.List;
 

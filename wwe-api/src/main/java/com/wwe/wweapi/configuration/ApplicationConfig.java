@@ -1,4 +1,4 @@
-package org.kohli.configuration;
+package com.wwe.wweapi.configuration;
 
 import org.springframework.context.annotation.Configuration;
 

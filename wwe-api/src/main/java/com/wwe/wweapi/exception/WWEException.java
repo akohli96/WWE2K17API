@@ -1,4 +1,4 @@
-package org.kohli.exception;
+package com.wwe.wweapi.exception;
 
 public class WWEException extends Exception{
 

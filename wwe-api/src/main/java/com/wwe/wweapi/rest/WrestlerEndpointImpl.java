@@ -1,10 +1,10 @@
-package org.kohli.rest;
+package com.wwe.wweapi.rest;
 
 import java.util.List;
-import org.kohli.rest.WrestlerEndpoint;
-import org.kohli.services.WrestlerService;
+
+import com.wwe.wweapi.object.Wrestler;
+import com.wwe.wweapi.services.WrestlerService;
 import org.springframework.stereotype.Component;
-import org.kohli.object.Wrestler;
 
 import javax.inject.Inject;
 

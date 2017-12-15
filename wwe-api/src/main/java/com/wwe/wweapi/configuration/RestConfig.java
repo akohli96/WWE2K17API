@@ -1,7 +1,7 @@
-package  org.kohli.configuration;
+package com.wwe.wweapi.configuration;
 
+import com.wwe.wweapi.rest.WrestlerEndpointImpl;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.kohli.rest.WrestlerEndpointImpl;
 
 import javax.ws.rs.ApplicationPath;
 import org.springframework.context.annotation.Configuration;

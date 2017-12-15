@@ -1,8 +1,9 @@
-package org.kohli.services;
+package com.wwe.wweapi.services;
+
+import com.wwe.wweapi.object.Wrestler;
 
 import java.util.List;
 
-import org.kohli.object.Wrestler;
 public interface WrestlerService {
 
     Wrestler getByID(String id);
