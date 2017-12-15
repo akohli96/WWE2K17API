@@ -1,0 +1,6 @@
+before_script: 
+  - cd wwe-api/
+
+script: gradle build
+
+language: java
