@@ -5,7 +5,7 @@ before_script:
 
 script: 
 - gradle build
-- gradle codeCoverageReport
+- gradle jacocoTestReport
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
