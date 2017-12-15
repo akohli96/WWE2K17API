@@ -11,7 +11,6 @@ import com.wwe.wweapi.object.Wrestler;
 import org.springframework.stereotype.Component;
 
 //TODO : Make Response objects
-@Component
 @Path("wrestler")
 public interface WrestlerEndpoint{
 
