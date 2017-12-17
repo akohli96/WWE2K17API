@@ -1,12 +1,10 @@
 package com.wwe.wweapi.rest;
 
-import java.util.List;
-
-import com.wwe.wweapi.object.Wrestler;
 import com.wwe.wweapi.services.WrestlerService;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
+import javax.ws.rs.core.Response;
 
 @Component
 public class WrestlerEndpointImpl implements WrestlerEndpoint{
@@ -17,12 +15,19 @@ public class WrestlerEndpointImpl implements WrestlerEndpoint{
     public WrestlerEndpointImpl(WrestlerService wrestlerService){
         this.wrestlerService=wrestlerService;
     }
-    public List<Wrestler> getAll(){
-        return wrestlerService.getAll();
+
+    @Override
+    public Response getAll(){
+        return Response
+                .accepted(wrestlerService.getAll())
+                .build();
     }
 
-    public Wrestler getByID(String id){
-        return wrestlerService.getByID(id);
+    @Override
+    public Response getByID(String id){
+        return Response
+                .accepted(wrestlerService.getByID(id))
+                .build();
     }
 
 }
