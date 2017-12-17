@@ -1,4 +1,4 @@
-package com.wwe.wweapi.object;
+package com.wwe.wweapi.domain.model;
 
 import java.util.List;
 

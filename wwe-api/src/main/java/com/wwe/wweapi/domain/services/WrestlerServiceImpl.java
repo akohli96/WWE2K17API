@@ -1,22 +1,22 @@
-package com.wwe.wweapi.services;
+package com.wwe.wweapi.domain.services;
 
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.io.IOException;
-import java.util.stream.Collectors;
 
-//import org.kohli.exception.WWEException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.wwe.wweapi.exception.WWEException;
-import com.wwe.wweapi.object.Wrestler;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.wwe.wweapi.domain.WrestlerService;
+import com.wwe.wweapi.domain.exception.WWEException;
+import com.wwe.wweapi.domain.model.Wrestler;
+
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.core.JsonParseException;
+
 
 import javax.inject.Inject;
 

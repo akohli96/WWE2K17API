@@ -1,6 +1,6 @@
-package com.wwe.wweapi.services;
+package com.wwe.wweapi.domain;
 
-import com.wwe.wweapi.object.Wrestler;
+import com.wwe.wweapi.domain.model.Wrestler;
 
 import java.util.List;
 

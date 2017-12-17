@@ -1,6 +1,6 @@
-package com.wwe.wweapi.configuration;
+package com.wwe.wweapi.port.primary.config;
 
-import com.wwe.wweapi.rest.WrestlerEndpointImpl;
+import com.wwe.wweapi.port.primary.rest.adapter.WrestlerEndpointImpl;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import javax.ws.rs.ApplicationPath;

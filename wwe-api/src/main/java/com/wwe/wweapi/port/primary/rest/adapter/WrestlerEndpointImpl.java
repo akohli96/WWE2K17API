@@ -1,13 +1,14 @@
-package com.wwe.wweapi.rest;
+package com.wwe.wweapi.port.primary.rest.adapter;
 
-import com.wwe.wweapi.services.WrestlerService;
+import com.wwe.wweapi.port.primary.rest.WrestlerEndpoint;
+import com.wwe.wweapi.domain.WrestlerService;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
 @Component
-public class WrestlerEndpointImpl implements WrestlerEndpoint{
+public class WrestlerEndpointImpl implements WrestlerEndpoint {
 
     private WrestlerService wrestlerService;
 

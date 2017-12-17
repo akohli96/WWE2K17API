@@ -1,4 +1,4 @@
-package com.wwe.wweapi;
+package com.wwe.wweapi.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

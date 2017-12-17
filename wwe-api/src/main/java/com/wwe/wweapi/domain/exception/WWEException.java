@@ -1,4 +1,4 @@
-package com.wwe.wweapi.exception;
+package com.wwe.wweapi.domain.exception;
 
 public class WWEException extends Exception{
 

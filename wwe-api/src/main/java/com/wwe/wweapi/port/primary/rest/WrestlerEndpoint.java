@@ -1,4 +1,4 @@
-package com.wwe.wweapi.rest;
+package com.wwe.wweapi.port.primary.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
