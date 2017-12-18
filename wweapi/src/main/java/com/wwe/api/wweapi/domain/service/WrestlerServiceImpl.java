@@ -1,6 +1,8 @@
 package com.wwe.api.wweapi.domain.service;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wwe.api.wweapi.domain.WrestlerService;
 import com.wwe.api.wweapi.domain.exception.WWEException;
@@ -19,12 +21,12 @@ import java.util.Map;
 public class WrestlerServiceImpl implements WrestlerService {
 
     private ObjectMapper objectMapper;
-    private Map<String,Wrestler> wrestlerMap;
+    private Map <String, Wrestler> wrestlerMap;
 
     @Inject
     public WrestlerServiceImpl(ObjectMapper objectMapper) throws WWEException {
-        this.objectMapper=objectMapper;
-        wrestlerMap = new HashMap<>();
+        this.objectMapper = objectMapper;
+        wrestlerMap = new HashMap <>();
         loadWrestlerData();
     }
 
@@ -34,15 +36,20 @@ public class WrestlerServiceImpl implements WrestlerService {
     }
 
     @Override
-    public List<Wrestler> getAll() {
-        return new ArrayList<>(wrestlerMap.values());
+    public List <Wrestler> getAll() {
+        return new ArrayList <>(wrestlerMap.values());
     }
 
     private void loadWrestlerData() throws WWEException {
         try {
-            List<Wrestler> wrestlerList = objectMapper.readValue(new ClassPathResource("superstar.json").getFile(),new TypeReference<List<Wrestler>>(){});
+            List <Wrestler> wrestlerList = objectMapper.readValue(new ClassPathResource("superstar.json").getFile(), new TypeReference <List <Wrestler>>() {}); //TODO : Look for alternatives
             wrestlerList.forEach(wrestler -> wrestlerMap.put(wrestler.getID(), wrestler));
-        } catch (IOException e) {
+
+        } catch ( JsonParseException e ) {
+            throw new WWEException(e);
+        } catch ( JsonMappingException e ) {
+            throw new WWEException(e);
+        } catch ( IOException e ) {
             throw new WWEException(e);
         }
     }
