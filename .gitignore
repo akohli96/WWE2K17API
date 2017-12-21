@@ -18,16 +18,16 @@ hs_err_pid*
 .vscode/
 
 #IDEA
-wweapi/.idea/
-wweapi/.gradle/
-wweapi/build/
-wweapi/gradle/
-wweapi/out/
-wweapi/.classpath
-wweapi/.project
-wweapi/.settings/
-wweapi/bin/
-wweapi/wwe-api.iml
-wweapi/wwe-api.ipr
-wweapi/wwe-api.iws
+wwe-api/.idea/
+wwe-api/.gradle/
+wwe-api/build/
+wwe-api/gradle/
+wwe-api/out/
+wwe-api/.classpath
+wwe-api/.project
+wwe-api/.settings/
+wwe-api/bin/
+wwe-api/wwe-api.iml
+wwe-api/wwe-api.ipr
+wwe-api/wwe-api.iws
 
