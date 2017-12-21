@@ -13,21 +13,21 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
+import static java.util.Arrays.asList;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
 
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class WrestlerServiceImplTest {
     private WrestlerService wrestlerService;
-    List<Wrestler> wrestlerList;
 
-    private static final List<String> signatures = Arrays.asList((String) "Signature1,Signature2");
+    private static final List<String> signatures = asList((String) "Signature1,Signature2");
     private static final String name = "wrestlerName";
     private static final int weight = 100;
     private static final String from = "Location";
@@ -35,27 +35,36 @@ public class WrestlerServiceImplTest {
     private static final float height = 172;
     private static final String id = "Random-UUID";
 
+    @Mock
     private ObjectMapper objectMapper;
 
     @Before
     public void setUp() throws WWEException, IOException {
         objectMapper = mock(ObjectMapper.class);
-        wrestlerList = new ArrayList <>();
+        List <Wrestler> wrestlerList = new ArrayList <>();
         for(int i = 0;i<3;i++){
             wrestlerList.add(new Wrestler(signatures,name,weight,from,debut,height,id+i));
         }
-        when(objectMapper.readValue(any(File.class),new TypeReference<List<Wrestler>>(){})).thenReturn(wrestlerList); //TODO : FIX
+        when(objectMapper.readValue(any(File.class),any(TypeReference.class))).thenReturn(wrestlerList);
         wrestlerService = new WrestlerServiceImpl(objectMapper);
     }
     @Test
-    public void getByID() throws Exception {
-        wrestlerService.getByID(id+1);
-        wrestlerService.getByID(id+2);
-        wrestlerService.getByID(id+3);
+    public void getByIDShouldReturnCorrectWrestlers() {
+        assertEquals(wrestlerService.getByID(id+0).getID(),id+0);
+        assertEquals(wrestlerService.getByID(id+1).getID(),id+1);
+        assertEquals(wrestlerService.getByID(id+2).getID(),id+2);
     }
 
     @Test
-    public void getAll() throws Exception {
+    public void getAllShouldReturnCorrectWrestlerList()  {
+        wrestlerService.getAll()
+                                .forEach(wrestler -> assertThat(wrestler, instanceOf(Wrestler.class)));
+    }
+
+    @Test(expected = WWEException.class)
+    public void wresterServiceConstructionThrowsWWEException() throws WWEException, IOException {
+        when(objectMapper.readValue(any(File.class),any(TypeReference.class))).thenThrow(IOException.class);
+        wrestlerService = new WrestlerServiceImpl(objectMapper);
     }
 
 }

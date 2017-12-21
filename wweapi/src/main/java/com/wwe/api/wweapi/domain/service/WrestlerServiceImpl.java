@@ -1,8 +1,6 @@
 package com.wwe.api.wweapi.domain.service;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wwe.api.wweapi.domain.WrestlerService;
 import com.wwe.api.wweapi.domain.exception.WWEException;
@@ -22,6 +20,7 @@ public class WrestlerServiceImpl implements WrestlerService {
 
     private ObjectMapper objectMapper;
     private Map <String, Wrestler> wrestlerMap;
+    private static final String fileName = "superstar.json";
 
     @Inject
     public WrestlerServiceImpl(ObjectMapper objectMapper) throws WWEException {
@@ -32,7 +31,7 @@ public class WrestlerServiceImpl implements WrestlerService {
 
     @Override
     public Wrestler getByID(String id) {
-        return wrestlerMap.get(id);
+        return wrestlerMap.get(id); //TODO : Throw exception
     }
 
     @Override
@@ -42,15 +41,10 @@ public class WrestlerServiceImpl implements WrestlerService {
 
     private void loadWrestlerData() throws WWEException {
         try {
-            List <Wrestler> wrestlerList = objectMapper.readValue(new ClassPathResource("superstar.json").getFile(), new TypeReference <List <Wrestler>>() {}); //TODO : Look for alternatives
+            List <Wrestler> wrestlerList = objectMapper.readValue(new ClassPathResource(fileName).getFile(), new TypeReference <List <Wrestler>>() {}); //TODO : Look for alternatives
             wrestlerList.forEach(wrestler -> wrestlerMap.put(wrestler.getID(), wrestler));
-
-        } catch ( JsonParseException e ) {
-            throw new WWEException(e);
-        } catch ( JsonMappingException e ) {
-            throw new WWEException(e);
         } catch ( IOException e ) {
-            throw new WWEException(e);
+            throw new WWEException(e); //TODO : Throw IOException instead of WWEException
         }
     }
 }

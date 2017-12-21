@@ -6,12 +6,13 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static org.junit.Assert.*;
 
 public class WrestlerTest {
 
     private Wrestler wrestler;
-    private static final List<String> signatures = Arrays.asList((String) "Signature1,Signature2");
+    private static final List<String> signatures = asList((String) "Signature1,Signature2");
     private static final String name = "wrestlerName";
     private static final int weight = 100;
     private static final String from = "Location";
@@ -25,7 +26,7 @@ public class WrestlerTest {
     }
     @Test
     public void getSignaturesShouldReturnSignatures(){
-        assertEquals(wrestler.getSignatures(), Arrays.asList((String) "Signature1,Signature2"));
+        assertEquals(wrestler.getSignatures(), asList((String) "Signature1,Signature2"));
     }
 
     @Test
