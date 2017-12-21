@@ -32,7 +32,7 @@ public class WrestlerEndpointImplTest {
     private static final float height = 172;
     private static final String id = "Random-UUID";
 
-    List <Wrestler> wrestlerList;
+    private List <Wrestler> wrestlerList;
 
     @Before
     public void setUp(){
