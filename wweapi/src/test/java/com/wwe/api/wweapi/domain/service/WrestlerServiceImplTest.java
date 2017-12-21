@@ -55,8 +55,9 @@ public class WrestlerServiceImplTest {
 
     @Test
     public void getAllShouldReturnCorrectWrestlerList()  {
-        wrestlerService.getAll()
-                                .forEach(wrestler -> assertThat(wrestler, instanceOf(Wrestler.class)));
+        List<Wrestler> wrestlerList = wrestlerService.getAll();
+        assertEquals(wrestlerList.size(),3);
+        wrestlerList.forEach(wrestler -> assertThat(wrestler, instanceOf(Wrestler.class)));
     }
 
     @Test(expected = WWEException.class)
